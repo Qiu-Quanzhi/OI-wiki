@@ -89,8 +89,7 @@ $$
     void tarjan(int u, int fa) {
       father[u] = fa;
       low[u] = dfn[u] = ++idx;
-      for (int i = 0; i < G[u].size(); i++) {
-        int v = G[u][i];
+      for (const auto &v : G[u]) {
         if (!dfn[v]) {
           tarjan(v, u);
           low[u] = min(low[u], low[v]);
@@ -158,8 +157,7 @@ $$
       bool flag=false;
       father[u] = fa;
       low[u] = dfn[u] = ++idx;
-      for (int i = 0; i < G[u].size(); i++) {
-        int v = G[u][i];
+      for (const auto &v : G[u]) {
         if (!dfn[v]) {
           tarjan(v, u);
           low[u] = min(low[u], low[v]);
